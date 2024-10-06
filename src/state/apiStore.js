@@ -31,20 +31,3 @@ export const useGetData = create(
         )
     )
 );
-
-// export const ApiStore = create(
-//     devtools(
-//         persist(
-//             (set) => ({
-//                 userData: [],
-
-//                 getApiData: () => set((state) => ({
-                    
-//                     userData: [data, ...state.userData]
-//                 }))
-
-//             }),
-//             { name: "ApiStore" }
-//         )
-//     )
-// )
