@@ -11,23 +11,23 @@ const initialState = {
 };
 
 export const useGetData = create(
-    devtools (
-        persist (
+    devtools(
+        persist(
             (set, get) => ({
                 ...initialState,
-              
+
                 execute: async () => {
-                  set({ ...initialState, loading: true });
-                  try {
-                    const res = await axios.get("https://jsonplaceholder.typicode.com/users");
-                    set({ ...initialState, success: true, data: res.data });
-                  } catch (err) {
-                    console.error("Error in data fetch:", err);
-                    set({ ...initialState, error: true, errorData: err.message });
-                  }
+                    set({ ...initialState, loading: true });
+                    try {
+                        const res = await axios.get("https://jsonplaceholder.typicode.com/users?_limit=8");
+                        set({ ...initialState, success: true, data: res.data });
+                    } catch (err) {
+                        console.error("Error in data fetch:", err);
+                        set({ ...initialState, error: true, errorData: err.message });
+                    }
                 },
-              }),
-              {name:"useGetData"}
+            }),
+            { name: "useGetData" }
         )
     )
 );
